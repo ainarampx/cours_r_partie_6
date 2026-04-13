@@ -1,0 +1,33 @@
+---
+title: "Affluence hebdomadaire d'une boucle de comptage"
+author: "Ainara Martínez Pérez"
+date: today
+format:
+  html:
+    toc: true
+    theme: cosmo
+execute:
+  echo: false
+params:
+  boucle: 944
+---
+
+## Description
+
+Ce rapport présente l'affluence hebdomadaire observée pour une boucle de comptage donnée.  
+Le numéro de boucle est paramétrable, ce qui permet de générer facilement le même rapport pour différentes boucles.
+
+## Analyse de la boucle sélectionnée
+
+```{r}
+library(firstlib.ainara)
+
+df_boucle <- filtrer_trajet(
+  trajet = df_velo,
+  boucle = as.character(params$boucle)
+)
+
+plot_distribution_semaine(df_boucle)
+
+```
+
